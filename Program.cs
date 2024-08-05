@@ -48,19 +48,17 @@ void Menu()
     Console.WriteLine("| 7.  Eliminar gato              |");
     Console.WriteLine("| 0.  Salir                      |");
     Console.WriteLine("----------------------------------");
+    Console.WriteLine();
     Console.Write("Elija una opción: ");
     string input = Console.ReadLine();
 
-    if (int.TryParse(input, out int opcion) || opcion > 1 && opcion < 7)
+    if (int.TryParse(input, out int opcion))
     {
         switch (opcion)
         {
             case 1:
                 Console.Clear();
-                VeterinaryClinic.ShowDogs();
-                Console.WriteLine();
-                Console.WriteLine();
-                VeterinaryClinic.ShowCats();
+                VeterinaryClinic.ShowAllPatients();
                 getMenu();
                 break;
             case 2:
@@ -77,18 +75,18 @@ void Menu()
                 break;
             default:
                 Console.Clear();
-                Console.WriteLine("Opción inválida. Intente nuevamente.");
-                Console.ReadKey();
-                Menu();
+                Console.Write("Opción inválida. Intente nuevamente.");
+                Console.WriteLine();
+                getMenu();
                 break;
         }
     }
     else
     {
         Console.Clear();
-        Console.WriteLine("Opción inválida. Intente nuevamente.");
-        Console.ReadKey();
-        Menu();
+        Console.Write("Opción inválida. Solo se permiten números.");
+        Console.WriteLine();
+        getMenu();
     }
 
 }

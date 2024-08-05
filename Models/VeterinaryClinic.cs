@@ -24,11 +24,13 @@ public class VeterinaryClinic
     public static void SaveDog(Dog newDog)
     {
         Dogs.Add(newDog);
+        Console.WriteLine($"Perro agregado con éxito.");
     }
 
     public static void SaveCat(Cat newCat)
     {
         Cats.Add(newCat);
+        Console.WriteLine($"Gato agregado con éxito.");
     }
 
     public void UpdateDog(Dog dog)
@@ -79,9 +81,12 @@ public class VeterinaryClinic
         Console.WriteLine("----------------------------------------------------------------------------------------------------");
     }
 
-    public void ShowAllPatients()
+    public static void ShowAllPatients()
     {
-
+        ShowDogs();
+        Console.WriteLine();
+        Console.WriteLine();
+        ShowCats();
     }
 
     public void ShowAnimal(string type)
