@@ -196,9 +196,22 @@ public class VeterinaryClinic
         }
     }
 
-    public void DeleteDog(int id)
+    public static void DeleteDog()
     {
-
+        Console.Write("Ingrese el nombre del perro a eliminar: ");
+        string dogName = Console.ReadLine();
+        Dog dogToRemove = Dogs.FirstOrDefault(d => d.NamePublic() == dogName);
+        Console.Write($"¿Realmente quiere eliminar el perro {dogToRemove.NamePublic()} (s/n)?");
+        string option = Console.ReadLine().Trim().ToLower();
+        if (option.ToLower() == "s")
+        {
+            Dogs.Remove(dogToRemove);
+        }
+        else
+        {
+            Console.WriteLine("No se elominó el perro");
+        }
+        Console.WriteLine($"El perro {dogToRemove.NamePublic()} ha sido eliminado con éxito");
     }
 
     public void DeleteCat(int id)
