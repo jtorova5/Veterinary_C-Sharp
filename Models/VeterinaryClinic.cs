@@ -199,7 +199,7 @@ public class VeterinaryClinic
     public static void DeleteDog()
     {
         Console.Write("Ingrese el nombre del perro a eliminar: ");
-        string dogName = Console.ReadLine();
+        string dogName = Console.ReadLine().Trim().ToLower();
         Dog dogToRemove = Dogs.FirstOrDefault(d => d.NamePublic() == dogName);
         Console.Write($"¿Realmente quiere eliminar el perro {dogToRemove.NamePublic()} (s/n)?");
         string option = Console.ReadLine().Trim().ToLower();
@@ -209,14 +209,24 @@ public class VeterinaryClinic
         }
         else
         {
-            Console.WriteLine("No se elominó el perro");
+            Console.WriteLine("No se eliminó el perro");
         }
         Console.WriteLine($"El perro {dogToRemove.NamePublic()} ha sido eliminado con éxito");
     }
 
-    public void DeleteCat(int id)
+    public static void DeleteCat()
     {
-
+        Console.Write("Ingrese el nombre del gato a eliminar: ");
+        string catName = Console.ReadLine().Trim().ToLower();
+        Cat catToRemove = Cats.FirstOrDefault(c => c.NamePublic() == catName);
+        Console.Write($"¿Estás seguro de eliminar el gato {catToRemove.NamePublic()} (s/n)?");
+        string confirmation = Console.ReadLine().Trim().ToLower();
+        if(confirmation.ToLower() == "s"){
+            Cats.Remove(catToRemove);
+        } else {
+            Console.WriteLine("No se eliminó el gato");
+        }
+        Console.WriteLine($"El gato {catToRemove.NamePublic()} ha sido eliminado con éxito");
     }
 
     public static void ShowDogs()
