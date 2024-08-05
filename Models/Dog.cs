@@ -29,7 +29,7 @@ public class Dog : Animal
 
     public void Hairdress()
     {
-        
+
     }
 
     public override void ShowInformacion()
