@@ -98,9 +98,64 @@ public static class ManagerApp
         return new Dog(id, name, birthdateValidated, breed, color, weightInKg, breedingStatus, temperament, microchipNumber, barkVolume, furLenght);
     }
 
-    // public static Cat CreateCat()
-    // {
-    // }
+    public static Cat CreateCat()
+    {
+        Console.WriteLine("Ingrese los datos del gato:");
+        Console.Write("Id: ");
+        int id = Convert.ToInt32(Console.ReadLine());
+        Console.Write("Nombre: ");
+        string name = Console.ReadLine();
+        Console.Write("Fecha de nacimiento (DD/MM/AAAA): ");
+        string birthdate = Console.ReadLine();
+        DateTime validateBirthdate = DateTime.Parse(birthdate);
+        var flagB = true;
+        while (flagB)
+        {
+            if (validateBirthdate > DateTime.Now)
+            {
+                Console.WriteLine("Fecha de nacimiento no válida. Ingrese una fecha válida (DD/MM/AAAA).");
+            }
+            else
+            {
+                flagB = false;
+            }
+        }
+        DateOnly birthdateValidated = DateOnly.Parse(birthdate);
+        Console.Write("Raza: ");
+        string breed = Console.ReadLine();
+        Console.Write("Color: ");
+        string color = Console.ReadLine();
+        Console.Write("Peso (kg): ");
+        double weightInKg = Convert.ToDouble(Console.ReadLine());
+        Console.Write("¿Está castrado? (s/n):");
+        string validateStatus = Console.ReadLine().Trim().ToLower();
+        bool breedingStatus;
+        if (validateStatus == "s")
+        {
+            breedingStatus = true;
+        }
+        else
+        {
+            breedingStatus = false;
+        }
+        Console.Write("Longitud de pelo (sin pelo/pelo corto/pelo mediano/pelo largo): ");
+        string validateFurLenght = Console.ReadLine().Trim().ToLower();
+        var flag3 = true;
+        while (flag3)
+        {
+            if (validateFurLenght == "sin pelo" || validateFurLenght == "pelo corto" || validateFurLenght == "pelo mediano" || validateFurLenght == "pelo largo")
+            {
+                flag3 = false;
+            }
+            else
+            {
+                Console.WriteLine("Longitud de pelo no válida. Ingrese un longitud de pelo válida.");
+            }
+        }
+        string furLenght = validateFurLenght;
+
+        return new Cat(id, name, birthdateValidated, breed, color, weightInKg, breedingStatus, furLenght);
+    }
 
     // public static void ShowHeader()
     // {
