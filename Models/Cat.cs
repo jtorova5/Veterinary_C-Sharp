@@ -25,4 +25,10 @@ public class Cat : Animal
     {
         
     }
+
+    public override void ShowInformacion()
+    {
+        BasicReview();
+        Console.Write($"|{BreedingStatus}|");
+    }
 }
