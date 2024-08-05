@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 namespace PruebaC_sharp_JhonatanToro.Models;
@@ -13,12 +14,14 @@ public class Animal
     protected string Breed { get; set; }
     protected string Color { get; set; }
     protected double WeightInKg { get; set; }
+    protected int Age { get; set; }
 
     public Animal(int id, string name, DateOnly birthdate, string breed, string color, double weightInKg)
     {
         Id = id;
         Name = name;
         Birthdate = birthdate;
+        Age = CalculateAgeInMonths();
         Breed = breed;
         Color = color;
         WeightInKg = weightInKg;
@@ -26,16 +29,18 @@ public class Animal
 
     public void ShowInformacion()
     {
-
+        BasicReview();
     }
 
     protected void BasicReview()
     {
-
+        Console.Write($"|{Id}|{Name}|{Breed}|{Color}|{Age}|");
     }
 
     protected int CalculateAgeInMonths()
     {
-        return 0;
+        var ageInMonths = (DateTime.Today.Year - Birthdate.Year) * 12;
+        ageInMonths += DateTime.Today.Month - Birthdate.Month;
+        return ageInMonths;
     }
 }
