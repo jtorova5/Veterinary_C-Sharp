@@ -79,6 +79,12 @@ void Menu()
                 VeterinaryClinic.UpdateDog();
                 getMenu();
                 break;
+            case 5:
+                Console.Clear();
+                VeterinaryClinic.ShowCats();
+                VeterinaryClinic.UpdateCat();
+                getMenu();
+                break;
             default:
                 Console.Clear();
                 Console.Write("Opción inválida. Intente nuevamente.");

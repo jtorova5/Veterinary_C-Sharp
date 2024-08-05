@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace PruebaC_sharp_JhonatanToro.Models;
@@ -112,6 +114,7 @@ public class VeterinaryClinic
                     UpdateDog();
                     break;
             }
+            Console.Write("Actualizado");
         }
         else
         {
@@ -122,9 +125,75 @@ public class VeterinaryClinic
         }
     }
 
-    public void UpdateCat(Cat cat)
+    public static void UpdateCat()
     {
+        Console.Write("Ingrese el nombre del gato a actualizar: ");
+        string newName = Console.ReadLine().Trim().ToLower();
+        Console.Clear();
+        Console.WriteLine("----------------------------------");
+        Console.WriteLine("|            Opciones            |");
+        Console.WriteLine("----------------------------------");
+        Console.WriteLine("| 1.  Nombre                     |");
+        Console.WriteLine("| 2.  Fecha de nacimiento        |");
+        Console.WriteLine("| 3.  Raza                       |");
+        Console.WriteLine("| 4.  Color                      |");
+        Console.WriteLine("| 5.  Peso                       |");
+        Console.WriteLine("| 6.  ¿Castrado?                 |");
+        Console.WriteLine("| 7.  Pelo                       |");
+        Console.WriteLine("----------------------------------");
+        Console.WriteLine();
+        Console.Write("Elija una opción para actualizar: ");
 
+        string input = Console.ReadLine();
+        Cat catToUpdate = Cats.FirstOrDefault(c => c.NamePublic() == newName);
+
+        if (int.TryParse(input, out int opcion))
+        {
+            switch (opcion)
+            {
+                case 1:
+                    Console.Write("Ingrese el nuevo nombre: ");
+                    newName = Console.ReadLine().Trim().ToLower();
+                    catToUpdate.UpdateName(newName);
+                    break;
+                case 2:
+                    Console.Write("Ingrese la nueva fecha de nacimiento (DD/MM/AAAA): ");
+                    string newBirthDateString = Console.ReadLine();
+                    catToUpdate.UpdateBirthDate(DateOnly.Parse(newBirthDateString));
+                    break;
+                case 3:
+                    Console.Write("Ingrese la nueva raza: ");
+                    string newBreed = Console.ReadLine();
+                    catToUpdate.UpdateBreed(newBreed);
+                    break;
+                case 4:
+                    Console.Write("Ingrese el nuevo color: ");
+                    catToUpdate.UpdateColor(Console.ReadLine());
+                    break;
+                case 5:
+                    Console.Write("Ingrese el nuevo peso (kg): ");
+                    double newPeso = Convert.ToDouble(Console.Read());
+                    catToUpdate.UpdateWeightInKg(newPeso);
+                    break;
+                case 6:
+                    Console.Write("¿Está castrado? (s/n): ");
+                    var option = Console.ReadLine().Trim().ToLower();
+                    if (option == "s")
+                    {
+                        catToUpdate.BreedingStatus = true;
+                    }
+                    else
+                    {
+                        catToUpdate.BreedingStatus = false;
+                    }
+                    break;
+                case 7:
+                    Console.Write("Ingrese el nuevo tipo de pelo: ");
+                    catToUpdate.FurLenght = Console.ReadLine();
+                    break;
+            }
+            Console.Write("Actualizado");
+        }
     }
 
     public void DeleteDog(int id)
