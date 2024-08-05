@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PruebaC_sharp_JhonatanToro.Models;
 
-public class Animal
+public abstract class Animal
 {
     protected int Id { get; set; }
     protected string Name { get; set; }
@@ -27,10 +27,7 @@ public class Animal
         WeightInKg = weightInKg;
     }
 
-    public void ShowInformacion()
-    {
-        BasicReview();
-    }
+    public abstract void ShowInformacion();
 
     protected void BasicReview()
     {
