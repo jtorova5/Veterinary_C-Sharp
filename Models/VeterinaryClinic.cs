@@ -9,8 +9,8 @@ public class VeterinaryClinic
 {
     public string Name { get; set; }
     public string Address { get; set; }
-    public List<Dog> Dogs { get; set; }
-    public List<Cat> Cats { get; set; }
+    public static List<Dog> Dogs { get; set; }
+    public static List<Cat> Cats { get; set; }
 
     public VeterinaryClinic()
     {
@@ -25,14 +25,14 @@ public class VeterinaryClinic
         Cats = [];
     }
 
-    public void SaveDog(Dog newDog)
+    public static void SaveDog(Dog newDog)
     {
-
+        Dogs.Add(newDog);
     }
 
-    public void SaveCat(Cat newCat)
+    public static void SaveCat(Cat newCat)
     {
-
+        Cats.Add(newCat);
     }
 
     public void UpdateDog(Dog dog)
