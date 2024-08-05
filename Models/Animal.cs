@@ -40,4 +40,50 @@ public abstract class Animal
         ageInMonths += DateTime.Today.Month - Birthdate.Month;
         return ageInMonths;
     }
+
+    public int IdPublic()
+    {
+        return Id;
+    }
+    public string NamePublic()
+    {
+        return Name;
+    }
+    public DateOnly BirthDatePublic()
+    {
+        return Birthdate;
+    }
+    public string BreedPublic()
+    {
+        return Breed;
+    }
+    public string ColorPublic()
+    {
+        return Color;
+    }
+    public double WeightInKgPublic()
+    {
+        return WeightInKg;
+    }
+
+    public void UpdateName(string newName)
+    {
+        Name = newName;
+    }
+    public void UpdateBirthDate(DateOnly newBirthDate)
+    {
+        Birthdate = newBirthDate;
+    }
+    public void UpdateBreed(string newBreed)
+    {
+        Breed = newBreed;
+    }
+    public void UpdateColor(string newColor)
+    {
+        Color = newColor;
+    }
+    public void UpdateWeightInKg(double newWeightInKg)
+    {
+        WeightInKg = newWeightInKg;
+    }
 }

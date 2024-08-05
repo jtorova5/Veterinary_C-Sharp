@@ -33,9 +33,93 @@ public class VeterinaryClinic
         Console.WriteLine($"Gato agregado con éxito.");
     }
 
-    public void UpdateDog(Dog dog)
+    public static void UpdateDog()
     {
+        Console.Write("Ingrese el nombre del perro a actualizar: ");
+        string newName = Console.ReadLine().Trim().ToLower();
+        Console.Clear();
+        Console.WriteLine("----------------------------------");
+        Console.WriteLine("|            Opciones            |");
+        Console.WriteLine("----------------------------------");
+        Console.WriteLine("| 1.  Nombre                     |");
+        Console.WriteLine("| 2.  Fecha de nacimiento        |");
+        Console.WriteLine("| 3.  Raza                       |");
+        Console.WriteLine("| 4.  Color                      |");
+        Console.WriteLine("| 5.  Peso                       |");
+        Console.WriteLine("| 6.  ¿Castrado?                 |");
+        Console.WriteLine("| 7.  Temperamento               |");
+        Console.WriteLine("| 8.  Número microchip           |");
+        Console.WriteLine("| 9.  Volumen ladrido            |");
+        Console.WriteLine("| 10. Pelo                       |");
+        Console.WriteLine("----------------------------------");
+        Console.WriteLine();
+        Console.Write("Elija una opción para actualizar: ");
+        string input = Console.ReadLine();
 
+        Dog dog = Dogs.FirstOrDefault(d => d.NamePublic() == newName);
+
+        if (int.TryParse(input, out int opcion))
+        {
+            switch (opcion)
+            {
+                case 1:
+                    Console.Write("Ingrese el nuevo nombre: ");
+                    newName = Console.ReadLine().Trim().ToLower();
+                    dog.UpdateName(newName);
+                    break;
+                case 2:
+                    Console.Write("Ingrese la nueva fecha de nacimiento (DD/MM/AAAA): ");
+                    string newBirthDateString = Console.ReadLine();
+                    dog.UpdateBirthDate(DateOnly.Parse(newBirthDateString));
+                    break;
+                case 3:
+                    Console.Write("Ingrese la nueva raza: ");
+                    dog.UpdateBreed(Console.ReadLine());
+                    break;
+                case 4:
+                    Console.Write("Ingrese el nuevo color: ");
+                    dog.UpdateColor(Console.ReadLine());
+                    break;
+                case 5:
+                    Console.Write("Ingrese el nuevo peso (kg): ");
+                    dog.UpdateWeightInKg(double.Parse(Console.ReadLine()));
+                    break;
+                case 6:
+                    Console.Write("¿Está castrado? (s/n): ");
+                    dog.BreedingStatus = bool.Parse(Console.ReadLine());
+                    break;
+                case 7:
+                    Console.Write("Ingrese el nuevo temperamento (tímido/normal/agresivo): ");
+                    dog.Temperament = Console.ReadLine();
+                    break;
+                case 8:
+                    Console.Write("Ingrese el nuevo número del microchip: ");
+                    dog.MicrochipNumber = Console.ReadLine();
+                    break;
+                case 9:
+                    Console.Write("Ingrese el nuevo volumen del ladrido: ");
+                    dog.BarkVolume = Console.ReadLine();
+                    break;
+                case 10:
+                    Console.Write("Ingrese el nuevo tipo de pelo: ");
+                    dog.CoatType = Console.ReadLine();
+                    break;
+                default:
+                    Console.Clear();
+                    Console.Write("Opción inválida. Intente nuevamente.");
+                    Console.ReadKey();
+                    Console.Clear();
+                    UpdateDog();
+                    break;
+            }
+        }
+        else
+        {
+            Console.Clear();
+            Console.Write("Opción inválida. Solo se permiten números.");
+            Console.WriteLine();
+            UpdateDog();
+        }
     }
 
     public void UpdateCat(Cat cat)
@@ -94,7 +178,7 @@ public class VeterinaryClinic
 
     }
 
-    public void ShowPatient(int idPatient)
+    public void ShowPatient(string name)
     {
 
     }
