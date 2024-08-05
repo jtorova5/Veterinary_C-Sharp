@@ -23,6 +23,7 @@ public static class ManagerApp
             if (validateBirthdate > DateTime.Now)
             {
                 Console.WriteLine("Fecha de nacimiento no válida. Ingrese una fecha válida (DD/MM/AAAA).");
+                birthdate = Console.ReadLine();
             }
             else
             {
@@ -36,7 +37,7 @@ public static class ManagerApp
         string color = Console.ReadLine();
         Console.Write("Peso (kg): ");
         double weightInKg = Convert.ToDouble(Console.ReadLine());
-        Console.Write("¿Está castrado? (s/n):");
+        Console.Write("¿Está castrado? (s/n): ");
         string validateStatus = Console.ReadLine().Trim().ToLower();
         bool breedingStatus;
         if (validateStatus == "s")
@@ -59,6 +60,7 @@ public static class ManagerApp
             else
             {
                 Console.WriteLine("Temperamento no válido. Ingrese un temperamento válido.");
+                validateTemperament = Console.ReadLine().Trim().ToLower();
             }
         }
         string temperament = validateTemperament;
@@ -76,6 +78,7 @@ public static class ManagerApp
             else
             {
                 Console.WriteLine("Volumen del ruido del ladrido no válido. Ingrese un volumen válido.");
+                validateBarkVolume = Console.ReadLine().Trim().ToLower();
             }
         }
         string barkVolume = validateBarkVolume;
@@ -91,6 +94,7 @@ public static class ManagerApp
             else
             {
                 Console.WriteLine("Tipo de pelo no válido. Ingrese un tipo de pelo válido.");
+                validateFurLenght = Console.ReadLine().Trim().ToLower();
             }
         }
         string furLenght = validateFurLenght;
@@ -114,6 +118,7 @@ public static class ManagerApp
             if (validateBirthdate > DateTime.Now)
             {
                 Console.WriteLine("Fecha de nacimiento no válida. Ingrese una fecha válida (DD/MM/AAAA).");
+                birthdate = Console.ReadLine();
             }
             else
             {
@@ -150,6 +155,7 @@ public static class ManagerApp
             else
             {
                 Console.WriteLine("Longitud de pelo no válida. Ingrese un longitud de pelo válida.");
+                validateFurLenght = Console.ReadLine().Trim().ToLower();
             }
         }
         string furLenght = validateFurLenght;

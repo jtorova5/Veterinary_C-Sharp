@@ -9,20 +9,16 @@ public class VeterinaryClinic
 {
     public string Name { get; set; }
     public string Address { get; set; }
-    public static List<Dog> Dogs { get; set; }
-    public static List<Cat> Cats { get; set; }
+    public static List<Dog> Dogs { get; set; } = [];
+    public static List<Cat> Cats { get; set; } = [];
 
     public VeterinaryClinic()
     {
-        Dogs = [];
-        Cats = [];
     }
     public VeterinaryClinic(string name, string address)
     {
         Name = name;
         Address = address;
-        Dogs = [];
-        Cats = [];
     }
 
     public static void SaveDog(Dog newDog)
@@ -53,6 +49,34 @@ public class VeterinaryClinic
     public void DeleteCat(int id)
     {
 
+    }
+
+    public static void ShowDogs()
+    {
+        Console.WriteLine("-------------------------------------------------------------------------------------------------------------------");
+        Console.WriteLine("|                                               Perros registrados                                                |");
+        Console.WriteLine("-------------------------------------------------------------------------------------------------------------------");
+        Console.WriteLine("| Id |        Nombre        |       Raza       |    Color    | Edad(m) | ¿Castrado? | Temperamento |     Pelo     |");
+        Console.WriteLine("-------------------------------------------------------------------------------------------------------------------");
+        foreach (var dog in Dogs)
+        {
+            dog.ShowInformacion();
+        }
+        Console.WriteLine("-------------------------------------------------------------------------------------------------------------------");
+    }
+
+    public static void ShowCats()
+    {
+        Console.WriteLine("----------------------------------------------------------------------------------------------------");
+        Console.WriteLine("|                                        Gatos registrados                                         |");
+        Console.WriteLine("----------------------------------------------------------------------------------------------------");
+        Console.WriteLine("| Id |        Nombre        |       Raza       |    Color    | Edad(m) | ¿Castrado? |     Pelo     |");
+        Console.WriteLine("----------------------------------------------------------------------------------------------------");
+        foreach (var cat in Cats)
+        {
+            cat.ShowInformacion();
+        }
+        Console.WriteLine("----------------------------------------------------------------------------------------------------");
     }
 
     public void ShowAllPatients()

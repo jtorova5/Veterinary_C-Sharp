@@ -29,6 +29,6 @@ public class Cat : Animal
     public override void ShowInformacion()
     {
         BasicReview();
-        Console.Write($"|{BreedingStatus}|");
+        Console.WriteLine($" {BreedingStatus,-11}| {FurLenght,-12} |");
     }
 }

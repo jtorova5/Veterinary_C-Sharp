@@ -35,6 +35,6 @@ public class Dog : Animal
     public override void ShowInformacion()
     {
         BasicReview();
-        Console.Write($"|{BreedingStatus}|{Temperament}|{MicrochipNumber}|");
+        Console.WriteLine($" {BreedingStatus,-11}| {Temperament,-13}| {CoatType,-13}|");
     }
 }

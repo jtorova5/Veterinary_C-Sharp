@@ -31,7 +31,7 @@ public abstract class Animal
 
     protected void BasicReview()
     {
-        Console.Write($"|{Id}|{Name}|{Breed}|{Color}|{Age}|");
+        Console.Write($"| {Id,-3}| {Name,-21}| {Breed,-17}| {Color,-12}|   {Age,-6}|");
     }
 
     protected int CalculateAgeInMonths()
