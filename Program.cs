@@ -85,17 +85,23 @@ void Menu()
                 VeterinaryClinic.UpdateCat();
                 getMenu();
                 break;
-                case 6:
+            case 6:
                 Console.Clear();
                 VeterinaryClinic.ShowDogs();
                 VeterinaryClinic.DeleteDog();
                 getMenu();
                 break;
-                case 7:
+            case 7:
                 Console.Clear();
                 VeterinaryClinic.ShowCats();
                 VeterinaryClinic.DeleteCat();
                 getMenu();
+                break;
+            case 0:
+                Console.Clear();
+                Console.WriteLine("Saliendo del sistema...");
+                Console.ReadKey();
+                Environment.Exit(0);
                 break;
             default:
                 Console.Clear();
